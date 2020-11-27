@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel = "stylesheet" type = "text/css" href="public/css/form.css">
+    <script rel = "script" type ="text/javascript" src ="public/js/AS4.js" defer></script>
+</head>
+<body>
+<h3>Register your account</h3>
+<div class = "container">
+    <form onsubmit = >
+        <label for = "username">Username</label>
+        <input type = "text" id = "username" name = "username">
+
+        <label for = "email">Email</label>
+        <input type = "email" id = "email" name = "email">
+
+        <label for = "password">Password</label>
+        <input type = "password" id = "password" name = "password">
+
+        <label for = "passConfirm">Re-enter password</label>
+        <input type = "password" id = "passConfirm" name = "passConfirm">
+    <div class = "checkboxes">
+        <label for = "ageReq"><input type = "checkbox" id = "ageReq" name = "ageReq" required>I am 13+ years old</label>
+
+        <label for = "tos"><input type = "checkbox" id = "tos" name = "tos" required>I have read and the tos</label>
+    </div>
+        <button type = "submit"> Register</button>
+    </form>
+</div>
+<div id = "pswdMessage">
+    <h3>Password must contain the following</h3>
+    <p id="pswdLetter" class="invalid">A <b>lowercase</b> letter</p>
+    <p id="pswdCapital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+    <p id="pswdNumber" class="invalid">A <b>number</b></p>
+    <p id="pswdLength" class="invalid">Minimum <b>8 characters</b></p>
+    <p id="pswdSpecial" class="invalid">One special char  <b>( / * - + ! @
+        # $ ^ & * ). </b></p>
+</div>
+<div id = "userMessage">
+    <h3>Username must contain the following</h3>
+    <p id="userletter" class="invalid">A <b>lowercase</b> letter</p>
+    <p id="usernumber" class="invalid">A <b>number</b></p>
+    <p id="userlength" class="invalid">Minimum <b>3 characters</b></p>
+</div>
+</body>
+</html>

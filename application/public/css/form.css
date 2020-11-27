@@ -1,0 +1,101 @@
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+/* Style the submit button */
+input[type=submit] {
+    background-color:seagreen;
+    color: white;
+}
+button[type=submit]{
+    background-color:seagreen;
+    color: white;
+}
+/* Style the container for inputs */
+.container {
+    background-color:whitesmoke;
+    padding: 20px;
+    border: solid lightgreen;
+    box-shadow: 1px 1px 25px dimgrey;
+}
+.checkboxes {
+    background-color:whitesmoke;
+    padding: 8px;
+    margin: 8px;
+    width: 50%;
+    text-align: left;
+    border: solid lightgreen;
+    box-shadow: 6px 8px 20px lightgrey;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#pswdMessage {
+    display:none;
+    background: whitesmoke;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 6px 8px 20px lightgrey;
+}
+
+#pswdMessage p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+#userMessage {
+    display:none;
+    background: whitesmoke;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 6px 8px 20px lightgrey;
+}
+
+#userMessage p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+body{
+    margin:auto;
+    width: 50%;
+    padding-top: 100px;
+    background-color: ghostwhite;
+}
