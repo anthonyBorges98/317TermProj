@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel = "stylesheet" type = "text/css" href="public/css/form.css">
-    <script type ="text/javascript" src ="public/js/AS4.js"></script>
-</head>
-<body>
-<form >
-    <fieldset>
-        <label> Username<input type = text /></label>
-        <br />
-        <label> Password<input type = password /></label>
-        <br />
-        <br />
-        <input type="submit" value="Submit">
-    </fieldset>
+<form method = "post">
+        <label for = "username"><b>Username</b></label>
+        <input id = username name = "username" type = "text" placeholder="Enter Username">
+
+        <label for = "psswrd"><b>Password</b></label>
+        <input id = psswrd name = "psswrd" type = "password" placeholder="Enter Password">
+
+        <button type="submit">Login</button>
+
+        <span class = "psswrd">Not <a href = "registration.html">registered?</a></span>
+
 </form>
-</body>
-</html>

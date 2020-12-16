@@ -1,3 +1,9 @@
+body{
+    margin:auto;
+    width: 50%;
+    padding-top: 100px;
+    background-color: grey;
+}
 input {
     width: 100%;
     padding: 12px;
@@ -16,33 +22,75 @@ button {
     margin-top: 6px;
     margin-bottom: 16px;
 }
-/* Style the submit button */
-input[type=submit] {
-    background-color:seagreen;
-    color: white;
-}
 button[type=submit]{
-    background-color:seagreen;
-    color: white;
+    background-color:black;
+    color: yellow;
 }
-/* Style the container for inputs */
-.container {
-    background-color:whitesmoke;
+button[type=submit]:hover {
+    background-color: yellow;
+    color: black;
+}
+.header {
+    background-color: grey;
+    text-align: center;
+    font-size: xxx-large;
+    font-family: "Lucida Sans Typewriter";
+    color: white;
     padding: 20px;
-    border: solid lightgreen;
-    box-shadow: 1px 1px 25px dimgrey;
+}
+.banner-item a{
+    color: yellow;
+}
+.topnav {
+    background-color: black;
+    border-bottom: solid yellow;
+    border-left: hidden;
+    border-right: hidden;
+    border-top: solid yellow;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.topnav .home{
+    float: left;
+    display: block;
+    color: yellow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav .form-button{
+    float: right;
+    display: block;
+    color: yellow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: yellow;
+    color: black;
+}
+.topnav a.active {
+    background-color: black;
+    color: lightgoldenrodyellow;
+}
+.container {
+    font-family: "Lucida Sans Typewriter";
+    display: block;
+    background-color: grey;
+    color: white;
+    padding: 20px;
 }
 .checkboxes {
-    background-color:whitesmoke;
+    background-color: grey;
     padding: 8px;
     margin: 8px;
     width: 50%;
     text-align: left;
-    border: solid lightgreen;
-    box-shadow: 6px 8px 20px lightgrey;
+    border: solid lightyellow;
 }
-
-/* The message box is shown when the user clicks on the password field */
 #pswdMessage {
     display:none;
     background: whitesmoke;
@@ -87,15 +135,33 @@ button[type=submit]{
 .invalid {
     color: red;
 }
-
+/*
+ *
+ *
+ *
+ */
+/*NAVIGATION AND BANNER*/
 .invalid:before {
     position: relative;
     left: -35px;
     content: "✖";
 }
-body{
-    margin:auto;
+.upload {
+    background-color: grey;
+    text-align: center;
+    font-size: large;
+    font-family: "Lucida Sans Typewriter";
+    padding: 20px;
+}
+.imagePost{
+    color: white;
+    border: solid black;
+    padding: 1px;
+}
+.imagePost img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
-    padding-top: 100px;
-    background-color: ghostwhite;
+    text-align: left;
 }
