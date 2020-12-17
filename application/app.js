@@ -3,6 +3,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var handlebars = require('express-handlebars');
+var sessions = require('express-session');
+var mysqlSession = require('express-mysql-session')(sessions);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,9 +21,18 @@ app.engine(
         defaultLayout: "home",
     })
 );
-
+var mysqlSessionStore = new mysqlSession({
+    /* using default options */
+}, require('./conf/database'));
 app.set("view engine", "hbs");
 
+app.use(sessions({
+    key: "csid",
+    secret: "This is a secret",
+    store: mysqlSessionStore,
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
