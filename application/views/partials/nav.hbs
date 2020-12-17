@@ -1,9 +1,13 @@
 <div class="topnav">
     <div class="topnav">
-        <a class = "home"  href="imagepost">Home</a>
-        <a class = "form-button" href="registration">Register</a>
-        <a class = "form-button" href="login">Login</a>
-        <a class = "form-button" href="postimage">Upload</a>
+        <a class = "home"  href="/imagepost">Home</a>
+        <a class = "form-button" href="/registration">Register</a>
+        {{#if logged}}
+            <a class = "form-button" href="/users/logout">Log out</a>
+        {{else}}
+            <a class = "form-button" href="/login">Log in</a>
+        {{/if}}
+        <a class = "form-button" href="/postimage">Upload</a>
     </div>
 </div>
 

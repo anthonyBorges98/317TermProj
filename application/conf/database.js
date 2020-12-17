@@ -5,10 +5,10 @@ const pool = mysql.createPool({
     host:"localhost",
     user:"photoapp",
     password:"Green$nake66",
-    database:"csc317db",
+    database: "csc317db",
     connectionLimit:50,
     debug:false,
 });
 
-
-module.exports = pool;
+const promisePool = pool.promise();
+module.exports = promisePool;
