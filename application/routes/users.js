@@ -55,6 +55,7 @@ router.post('/register', (req, res, next) => {
         .then(([results, fields]) => {
             if (results && results.affectedRows) {
                 successPrint("users.js --> User was created!!");
+                req.flash('success','User account has been made')
                 res.redirect('/login');
             } else {
                 throw new UserError(
@@ -68,6 +69,7 @@ router.post('/register', (req, res, next) => {
             errorPrint("User could not be made", err);
             if (err instanceof UserError) {
                 errorPrint(err.getMessage());
+                req.flash('error',err.getMessage());
                 res.status(err.getStatus());
                 res.redirect(err.getRedirectURL());
             } else {
@@ -85,21 +87,27 @@ router.post('/login', (req, res, next) => {
      * DO ON OUR OWN
      */
 
-    let baseSQL = "SELECT username, password FROM users WHERE username=? AND password=?;"
-    db.execute(baseSQL, [username, password])
+    let baseSQL = "SELECT id, username, password FROM users WHERE username=?;"
+    let userId;
+    db.execute(baseSQL, [username])
         .then(([results, fields]) => {
             if (results && results.length == 1) {
                 let hashedPassword = results[0].password;
+                userId = results[0].id;
                 return bcrypt.compare(password, hashedPassword);
             } else {
-                throw new UserError("Invalid username or password", "/login", 200);
+                throw new UserError("invalid username or password", "/login", 200);
             }
         })
         .then((passwordsMatched) => {
             if (passwordsMatched) {
                 successPrint(`User ${username} is logged in`);
+                req.session.username = username;
+                req.session.id = userId;
                 res.locals.logged = true;
-                res.render('index');
+                req.flash('success','you have been successfully logged in')
+                res.redirect("/");
+
             } else {
                 throw new UserError("Invalid username or password", "/login", 200);
             }
@@ -107,6 +115,7 @@ router.post('/login', (req, res, next) => {
         .catch((err) => {
             if (errorPrint(err instanceof UserError)) {
                 errorPrint(err.getMessage());
+                req.flash('error',err.getMessage());
                 res.status(err.getStatus());
                 res.redirect('/login');
             } else {
@@ -114,4 +123,18 @@ router.post('/login', (req, res, next) => {
             }
         });
 });
+router.post('/logout',(req,res,next) =>{
+   req.session.destroy((err) => {
+       if(err){
+           errorPrint("session could not be destroyed");
+           next(err);
+       }else{
+           successPrint("Session was destroyed");
+           res.clearCookie('csid');
+           res.json({status:"OK", message: "user is logged out"});
+       }
+   })
+});
+
+
 module.exports = router;

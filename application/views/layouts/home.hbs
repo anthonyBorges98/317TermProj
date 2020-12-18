@@ -2,16 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel = "stylesheet" type = "text/css" href="public/css/form.css">
-    <script rel = "script" type ="text/javascript" src ="public/js/AS4.js" defer></script>
+    <link rel = "stylesheet" type = "text/css" href="/public/css/form.css">
+    <script rel = "script" type ="text/javascript" src ="/public/js/AS4.js" defer></script>
 </head>
 <body>
 <header class = "header">
     {{> header}}
 </header>
 <div class = "container">
+    {{#if (emptyObject messages)}}
+        {{>flashmessage}}
+    {{/if}}
     {{{body}}}
 </div>
+
+{{#if logged}}
+    <script>
+        let ele = document.getElementById('logout-button');
+        if(ele){
+            ele.onclick = (even) =>{
+                fetch('/users/logout',{
+                    method: "POST"
+                })
+                .then((data) =>{
+                    location.replace('/');
+                })
+            }
+        }
+    </script>
+{{/if}}
 </body>
 
 </html>

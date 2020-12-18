@@ -1,11 +1,12 @@
 <header class = upload><h2>Upload your photo!</h2></header>
-
-<legend>Choose an image to upload</legend>
-<label> <input type = file></label>
-<br />
-<label> Title your creation <input type = text /></label>
-<br />
-<label> Describe your creation <input type = text /></label>
-<br />
-<label><input type = checkbox /> I accept the <a href = "www.fakelink.com">Acceptable Use Policy</a></label>
-<button type = submit>Upload</button>
+<form id = "post-image" class = "form-postimage" method="POST" enctype="multipart/form-data" action="/posts/createPost">
+    <legend>Choose an image to upload</legend>
+    <label> <input type = file name = "uploadImage"></label>
+    <br />
+    <label> Title your creation <input type = text name = "title" required/></label>
+    <br />
+    <label> Describe your creation <input type = text name = "description"/></label>
+    <br />
+    <label><input type = checkbox /> I accept the <a href = "www.fakelink.com">Acceptable Use Policy</a></label>
+    <button type = submit>Upload</button>
+</form>

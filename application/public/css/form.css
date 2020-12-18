@@ -13,6 +13,14 @@ input {
     margin-top: 6px;
     margin-bottom: 16px;
 }
+#flash-message{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+#flash-message div{
+    text-align: center;
+}
 button {
     width: 100%;
     padding: 12px;
@@ -35,6 +43,7 @@ button:hover {
     font-family: "Lucida Sans Typewriter";
     color: white;
     padding: 20px;
+    border-bottom: solid black;
 }
 .banner-item a{
     color: yellow;
