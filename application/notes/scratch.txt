@@ -16,3 +16,45 @@ posts
     created
     fk_userid
 
+
+    let username = req.body.username;
+    let password = req.body.password;
+
+    let regExpUserName = /[a-zA-Z][1-9][1-9][1-9]/;
+    let userNameCheck = regExpUserName.test(username);
+    let passValid = testValidPassword(password);
+    function testValidPassword(password){
+        let regExpCapitalLetters = /[A-Z]/g;
+        let regExpSpecialChar = /[!@#$%^&*(),.?":{}|<>]/g;
+
+        let capitalLetters = regExpCapitalLetters.test(password);
+        let specialCharacters = regExpSpecialChar.test(password);
+        return capitalLetters && specialCharacters;
+    }
+    if(userNameCheck && passValid){
+        UserModel.authenticate(username,password)
+            .then((loggedUserId) => {
+                if (loggedUserId > 0) {
+                    successPrint(`User ${username} is logged in`);
+                    req.session.username = username;
+                    req.session.id = loggedUserId;
+                    res.locals.logged = true;
+                    req.flash('success','you have been successfully logged in')
+                    res.redirect("/");
+
+                }
+            })
+            .catch((err) => {
+                if (errorPrint(err instanceof UserError)) {
+                    errorPrint(err.getMessage());
+                    req.flash('error',err.getMessage());
+                    res.status(err.getStatus());
+                    res.redirect('/login');
+                } else {
+                    next(err);
+                }
+            });
+    }else{
+
+            throw new UserError("Invalid username or password", "/login", 200);
+    }

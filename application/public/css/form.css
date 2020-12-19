@@ -14,9 +14,7 @@ input {
     margin-bottom: 16px;
 }
 #flash-message{
-    position: fixed;
     left: 50%;
-    transform: translate(-50%,0);
 }
 #flash-message div{
     text-align: center;
@@ -73,6 +71,10 @@ button:hover {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-size: 17px;
+}
+.topnav .search{
+    float: left;
     font-size: 17px;
 }
 .topnav a:hover {
