@@ -26,6 +26,12 @@
 </div>
 <script>
 
+    document.addEventListener('DOMContentLoaded', (event) =>{
+        document.querySelectorAll('span[class = date-posted]').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        });
+    });
+
     function addMessage(data) {
         let template = document.createElement('template');
         console.log(data);

@@ -28,7 +28,7 @@ router.use('/postimage', isLoggedIn);
 router.get('/postimage', (req,res,next) => {
   res.render('postimage');
 });
-router.get('/post/:id(\\d+)' , getPostById, (req,res,next) =>{
+router.get('/post/:id(\\d+)' , getPostById,getCommentsForPost, (req,res,next) =>{
   res.render('imagepost', {title: `Post ${req.params.id}`});
 });
 module.exports = router;
