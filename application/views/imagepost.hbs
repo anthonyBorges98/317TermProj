@@ -1,14 +1,15 @@
-<div class="container">
+<div class="image-container">
     <div id="post-container" class="imagePost">
         <div id="imageAuthor" class="postInfo"><label>Author: </label>{{currentPost.username}}</div>
         <br/>
-        <a><img src="/{{currentPost.photopath}}"></a>
+        <a><img id = "imagepost-image" class = "image-fluid" src="/{{currentPost.photopath}}"></a>
         <br/>
         <div id="imageTitle" class="postInfo"><label>Title: </label>{{currentPost.title}}</div>
         <br/>
         <div id="imageDescription" class="postInfo"><label>Description: </label>{{currentPost.description}}</div>
         <br/>
         <div id="imageDate" class="postInfo"><label>Date: </label>{{currentPost.created}}</div>
+    </div>
 
         <div id=comment-container>
             <div id="messages">
@@ -22,7 +23,6 @@
                                                                                viewBox="0 0 16 16"></svg> </span>
             </div>
         </div>
-    </div>
 </div>
 <script>
 

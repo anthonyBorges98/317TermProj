@@ -83,10 +83,16 @@ button:hover {
 }
 .container {
     font-family: "Lucida Sans Typewriter";
-    display: block;
     background-color: grey;
     color: white;
     padding: 20px;
+}
+.index-container{
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin:50px;
+    grid-row-gap:10px;
+    grid-column-gap:10px;
 }
 .upload {
     background-color: grey;
@@ -95,17 +101,9 @@ button:hover {
     font-family: "Lucida Sans Typewriter";
     padding: 20px;
 }
-.imagePost{
-    color: white;
-    border: solid black;
-    padding: 1px;
-}
-.imagePost img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    text-align: left;
+#imagepost-image{
+    height: 500px;
+    width: 90%;
 }
 #comment-container{
     display: grid;
@@ -119,6 +117,7 @@ button:hover {
 #messages{
     grid-area: messages;
     overflow-y: auto;
+    float: right;
     display: flex;
     flex-flow: column-reverse nowrap;
     scroll-behavior: smooth;
@@ -127,7 +126,7 @@ button:hover {
     grid-template-areas: "author created" "comment created";
 }
 
-div[id^=message-]{
+div[id^=messages-]{
     display:grid;
     grid-template-rows: .3fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -170,4 +169,7 @@ div[id^=message-]{
 .date-posted{
     grid-area: created;
     justify-self: end;
+}
+.card{
+    border: .0625rem solid yellow;
 }
