@@ -67,22 +67,20 @@ router.post('/createPost',uploader.single("uploadImage"), (req,res,next) => {
 
 });
 
-router.get("/search",async(req,res,next) => {
+router.get('/search',async(req,res,next) => {
     try{
         let searchTerm = req.query.search;
         if(!searchTerm){
             res.send({
-                resultsStatus: "info",
-                message: "No seach term given",
+                message: "No search term given",
                 results:[],
             });
         }else{
             let results = await PostModel.search(searchTerm);
             if(results.length){
                 res.send({
-                    resultStatus: "info",
                     message: `${results.length} results found`,
-                    results: results1,
+                    results: results,
                 });
             }else{
                 let results = await PostModel.getNRecentPosts(8);
@@ -94,7 +92,9 @@ router.get("/search",async(req,res,next) => {
             }
         }
 
-    }catch{}
-})
+    }catch (err){
+        next(err);
+    }
+});
 
 module.exports = router;

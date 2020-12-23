@@ -1,0 +1,173 @@
+body{
+    margin:auto;
+    width: 50%;
+    padding-top: 100px;
+    background-color: grey;
+}
+#flash-message{
+    left: 50%;
+}
+#flash-message div{
+    text-align: center;
+}
+#search-button{
+    float: left;
+    padding: 12px;
+    border: 1px solid black;
+    background-color:black;
+    color: yellow;
+    font-family: "Lucida Sans Typewriter";
+    font-size: 17px;
+    text-align: center;
+}
+#search-text{
+    float: left;
+    width: 25%;
+}
+button:hover {
+    background-color: yellow;
+    color: black;
+}
+.header {
+    background-color: grey;
+    text-align: center;
+    font-size: xxx-large;
+    font-family: "Lucida Sans Typewriter";
+    color: white;
+    padding: 20px;
+    border-bottom: solid black;
+}
+.banner-item a{
+    color: yellow;
+}
+.topnav {
+    background-color: black;
+    border-bottom: solid yellow;
+    border-left: hidden;
+    border-right: hidden;
+    border-top: solid yellow;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.topnav .home{
+    float: left;
+    display: block;
+    color: yellow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav .form-button{
+    float: right;
+    display: block;
+    color: yellow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+#search-button:hover {
+    background-color: yellow;
+    color: black;
+}
+.topnav a:hover {
+    background-color: yellow;
+    color: black;
+}
+.container {
+    font-family: "Lucida Sans Typewriter";
+    display: block;
+    background-color: grey;
+    color: white;
+    padding: 20px;
+}
+.upload {
+    background-color: grey;
+    text-align: center;
+    font-size: large;
+    font-family: "Lucida Sans Typewriter";
+    padding: 20px;
+}
+.imagePost{
+    color: white;
+    border: solid black;
+    padding: 1px;
+}
+.imagePost img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: left;
+}
+#comment-container{
+    display: grid;
+    grid-area: comments;
+    grid-template-rows: auto 75px;
+    grid-template-columns: 1fr;
+    gap: .2rem;
+    grid-template-areas: "messages" "comment-box";
+    max-height: 80vh;
+}
+#messages{
+    grid-area: messages;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+    border: 1px solid #cccccc;
+    border-radius: .35rem;
+    grid-template-areas: "author created" "comment created";
+}
+
+div[id^=message-]{
+    display:grid;
+    grid-template-rows: .3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap:.2em;
+    padding: .25rem;
+    margin: .2rem;
+    font-size: 1rem;
+    border: .0625rem solid #ced4da;
+    grid-template-areas: "author created" "comment comment";
+}
+#comment-box-text{
+    float: left;
+    width: 25%;
+}
+#comment-box-button{
+    float: left;
+    padding: 12px;
+    border: 1px solid black;
+    background-color:black;
+    color: yellow;
+    font-family: "Lucida Sans Typewriter";
+    font-size: 17px;
+    text-align: center;
+}
+#comment-box-button:hover {
+    background-color: yellow;
+    color: black;
+}
+.author-text{
+    grid-area: author;
+    justify-self: start;
+}
+.comment-text{
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 75px;
+    min-height: 75px;
+}
+.date-posted{
+    grid-area: created;
+    justify-self: end;
+}

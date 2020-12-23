@@ -77,10 +77,11 @@ router.post('/login', (req, res, next) => {
 
     UserModel.authenticate(username,password)
         .then((loggedUserId) => {
+            console.log(loggedUserId);
             if (loggedUserId > 0) {
                 successPrint(`User ${username} is logged in`);
                 req.session.username = username;
-                req.session.id = loggedUserId;
+                req.session.userId = loggedUserId;
                 res.locals.logged = true;
                 req.flash('success','you have been successfully logged in')
                 res.redirect("/");

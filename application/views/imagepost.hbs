@@ -1,11 +1,69 @@
-<div class = "container">
-    <div class = "imagePost">
-        <label> Author</label>
-        <br />
-        <a><img src="https://cdn.discordapp.com/attachments/755302715315322972/787585582754431006/IMG_0837.jpg"></a>
-        <br />
-        <label>Image Title</label>
-        <br />
-        <label>Date Posted: </label>
+<div class="container">
+    <div id="post-container" class="imagePost">
+        <div id="imageAuthor" class="postInfo"><label>Author: </label>{{currentPost.username}}</div>
+        <br/>
+        <a><img src="/{{currentPost.photopath}}"></a>
+        <br/>
+        <div id="imageTitle" class="postInfo"><label>Title: </label>{{currentPost.title}}</div>
+        <br/>
+        <div id="imageDescription" class="postInfo"><label>Description: </label>{{currentPost.description}}</div>
+        <br/>
+        <div id="imageDate" class="postInfo"><label>Date: </label>{{currentPost.created}}</div>
+
+        <div id=comment-container>
+            <div id="messages">
+                {{#each currentPost.comments}}
+                    {{> comment this}}
+                {{/each}}
+            </div>
+            <div id="comment-box">
+                <input type="text" id="comment-box-text" aria-label="With textarea" placeholder=" Comment here!">
+                <span id="comment-box-button" class="form-button">Comment!<svg width="1em" height="1em"
+                                                                               viewBox="0 0 16 16"></svg> </span>
+            </div>
+        </div>
     </div>
 </div>
+<script>
+
+    function addMessage(data) {
+        let template = document.createElement('template');
+        console.log(data);
+        template.innerHTML =
+                `<div id = "messages-${data.commentId}">
+                    <strong class = "author-text">@${data.username}</strong>
+                    <span class = "date-posted">${new Date().toLocaleString()}</span>
+                    <div class="comment-text"> ${data.comment}</div>
+                </div>`;
+        document.getElementById('messages').firstChild.before(template.content.firstChild)
+    }
+
+    document.getElementById('comment-box-button').onclick = (event) => {
+        let commentText = document.getElementById('comment-box-text').value;
+        let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
+
+        if (!commentText) {
+            return;
+        }
+        let fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json"
+            },
+            body: JSON.stringify({
+                comment: commentText,
+                postId: postId,
+            })
+        }
+        fetch('/comments/create', fetchOptions)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.code == 1) {
+                        addMessage(data);
+                    } else {
+                        console.log("You did a bad");
+                    }
+                })
+                .catch(err => console.log(err));
+    }
+</script>

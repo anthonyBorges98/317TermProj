@@ -1,11 +1,13 @@
 <div class="topnav">
-        <a class = "home"  href="/">Home</a>
-        <a class = "form-button" href ="postimage">Upload</a>
-        {{#if logged}}
-            <a id = "logout-button" class = "form-button">Log out</a>
-        {{else}}
-            <a class = "form-button" href="/login">Log in</a>
-        {{/if}}
-    <input class = search type = "text"  placeholder = "Search..">
+    <a class = "home"  href="/">Home</a>
+    <a class = "form-button" href ="postimage">Upload</a>
+    {{#if logged}}
+        <a id = "logout-button" class = "form-button">Log out</a>
+    {{else}}
+        <a class = "form-button" href="/login">Log in</a>
+    {{/if}}
+    <div class="search-container">
+            <input  id = 'search-text'type="text" placeholder="Search.." name="search">
+            <button id = 'search-button' >Submit</button>
+    </div>
 </div>
-

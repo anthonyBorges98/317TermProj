@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel = "stylesheet" type = "text/css" href="/public/css/form.css">
-    <script rel = "script" type ="text/javascript" src ="/public/js/AS4.js" defer></script>
+    <link rel = "stylesheet" type = "text/css" href = "/public/css/main.css">
+    <script rel = "script" type ="text/javascript" src ="/public/js/AS4.js"></script>
+    <script rel = "script" type = "text/javascript" src = "/public/js/frontend.js" defer></script>
 </head>
 <body>
 <header class = "header">
     {{> header}}
 </header>
-<div class = "container">
+<div  id = "main-content" class = "container">
     {{#if (emptyObject messages)}}
         {{>flashmessage}}
     {{/if}}

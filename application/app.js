@@ -10,6 +10,7 @@ var flash = require('express-flash');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
+var commentRouter = require('./routes/comments');
 
 var app = express();
 
@@ -47,6 +48,7 @@ app.use(cookieParser());
 app.use("/public",express.static(path.join(__dirname, 'public')));
 
 app.use((req,res,next) =>{
+    console.log(req.session);
     if(req.session.username){
         res.locals.logged = true;
     }
@@ -59,4 +61,5 @@ app.use((err,req,res,next)=>{
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use('/comments', commentRouter);
 module.exports = app;
