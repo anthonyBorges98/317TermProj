@@ -6,16 +6,6 @@ The purpose of this repository is to store all the code for your web application
 
 Please follow the instructions below and fill in the information requested when prompted.
 
-## Student Information
-
-|               | Information   |
-|:-------------:|:-------------:|
-| Student Name  | Anthony Borges     |
-| Student ID    | 920168519       |
-| Student Email | aborges1@mail.sfsu.edu    |
-
-
-
 # Build/Run Instructions
 
 ## Build Instructions
